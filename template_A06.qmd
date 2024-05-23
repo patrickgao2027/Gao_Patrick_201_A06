@@ -48,15 +48,15 @@ To get full credit for this Question you must:
 
 ## Github Repo Link
 
-[https://your-github-repo-url](https://your-github-repo-url)
-
+[https://github.com/patrickgao2027/Gao_Patrick_201_A06l](https://github.com/patrickgao2027/Gao_Patrick_201_A06)
+# check if grader can get to your git hub
 :::
 
 ::: {.callout-tip icon=false}
 
 ## Screenshot/image of RStudio
 
-![](filepath.png)
+![](github_link.PNG)
 
 :::
 
@@ -102,7 +102,8 @@ Extract the value `8162` (LeBron James points) in 2 different ways:
 - using names
 
 ```{r}
-
+player_info[[2]][[4]]
+player_info[["LJ"]][["points"]]
 ```
 
 
