@@ -38,11 +38,11 @@ Refer to the **instructions html** for this question! The instructions to setup 
 
 
 To get full credit for this Question you must:
-  
-  - have a clickable link to your GitHub in the callout below
-  - have at least 5 **meaningful** commits pushed to GitHub. 
-  - have your GitHub up to date (ie: assignment is complete on GitHub).
-  - insert a screenshot of RStudio that shows the project and Git. See instructions html for what needs to be visible in the screenshot.
+
+- have a clickable link to your GitHub in the callout below
+- have at least 5 **meaningful** commits pushed to GitHub. 
+- have your GitHub up to date (ie: assignment is complete on GitHub).
+- insert a screenshot of RStudio that shows the project and Git. See instructions html for what needs to be visible in the screenshot.
 
 ::: {.callout-tip icon=false}
 
@@ -67,30 +67,30 @@ Consider the list of lists below containing basketball player information.
 
 ```{r}
 player_info <- list(MJ = list(name = "Michael Jordan",
-                              postion = "shooting guard",
-                              games_played = 179,
-                              points = 5987,
-                              assists = 1022),
-                    LJ = list(name = "LeBron James",
-                              postion = "small forward",
-                              games_played = 287,
-                              points = 8162,
-                              assists = 2067),
-                    KB = list(name = "Kobe Bryant",
-                              postion = "shooting guard",
-                              games_played = 220,
-                              points = 5640,
-                              assists = 1040),
-                    KA = list(name = "Kareem Abdul-Jabbar",
-                              postion = "center",
-                              games_played = 237,
-                              points = 5762,
-                              assists = 767),
-                    SO = list(name = "Shaquille O'Neal",
-                              postion = "center",
-                              games_played = 216,
-                              points = 5250,
-                              assists = 582))
+postion = "shooting guard",
+games_played = 179,
+points = 5987,
+assists = 1022),
+LJ = list(name = "LeBron James",
+postion = "small forward",
+games_played = 287,
+points = 8162,
+assists = 2067),
+KB = list(name = "Kobe Bryant",
+postion = "shooting guard",
+games_played = 220,
+points = 5640,
+assists = 1040),
+KA = list(name = "Kareem Abdul-Jabbar",
+postion = "center",
+games_played = 237,
+points = 5762,
+assists = 767),
+SO = list(name = "Shaquille O'Neal",
+postion = "center",
+games_played = 216,
+points = 5250,
+assists = 582))
 ```
 
 
@@ -114,7 +114,11 @@ Add a new named element to the end of each player's list called `height`. The he
 Print the `player_info` list to prove you were successful.
 
 ```{r}
-
+heightvec <- c(78,81,78,86,85)
+for (i in 1: length(player_info)){
+print(player_info[i])
+player_info[i] <- append(player_info[[i]],heightvec[i],after=5)
+}
 ```
 
 
@@ -133,7 +137,11 @@ Hint: initialize an empty list
 Note: this must still run correctly even if the values were to change or if another player were added to the list or if the player order changed.
 
 ```{r}
+for (i in player_info){
+  print(i)
 
+print(i[4])
+}
 ```
 
 
@@ -165,7 +173,13 @@ ie: 91 rounds to 90; 173 rounds to 200; 1450 rounds to 1000
 Hint: use `MARGIN = 1:2` to apply the function to each value instead of only a row/col.
 
 ```{r}
-
+for (i in 1:nrow(mat_rand)){
+  for (j in 1:ncol(mat_rand)){
+    if (mat_rand[i,j] <= 99){
+      mat_rand[i,j] <- round(mat_rand[i,j],digits=0)
+    }
+  }
+}
 ```
 
 
@@ -181,7 +195,7 @@ temp_file <- 'state_max_temps.tsv'
 download.file(url = temp_url, destfile = temp_file)
 
 max_temps <- read_tsv("state_max_temps.tsv") |> 
-  janitor::clean_names()
+janitor::clean_names()
 ```
 
 ### Part a (2 points)
